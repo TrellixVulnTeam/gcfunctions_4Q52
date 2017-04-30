@@ -1,4 +1,4 @@
-exports.helloWorld = function helloWorld(req, res) {
+exports.helloworld = function helloworld(req, res) {
   let name = req.query.name || 'You';
   let message = 'Hey ' + name;
   console.log(message);
