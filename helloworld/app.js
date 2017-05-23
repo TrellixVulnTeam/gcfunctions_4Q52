@@ -31,11 +31,12 @@ exports.helloworld = function helloworld(req, res) {
       const Products = results[0];
       //res.status(200).send(Products[0].name);
       //console.log('Product Autocomplete: ');
-      //Debug response
-      res.status(200).send(name);
-      Products.forEach((name) => console.log(name));
+      //Products.forEach((name) => console.log(name));
     });
-  Products.forEach((name) => res.status(200).send(name));
+    //Debug response
+    res.status(200).send(name);
+    //res.status(200).send('Product Autocomplete: ' + Products[0].name);
+  //Products.forEach((name) => res.status(200).send(name));
 };
 
 /*exports.helloworld = function helloworld(req, res) {
