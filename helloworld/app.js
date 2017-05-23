@@ -29,8 +29,8 @@ exports.helloworld = function helloworld(req, res) {
     .then((results) => {
       // Product entities found.
       const Products = results[0];
-      res.status(200).send(Products[0].name);
-      console.log('Product Autocomplete: ');
+      //res.status(200).send(Products[0].name);
+      //console.log('Product Autocomplete: ');
       //Debug response
       res.status(200).send(name);
       Products.forEach((name) => console.log(name));
