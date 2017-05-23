@@ -13,10 +13,10 @@ exports.helloworld = function helloworld(req, res) {
   const datastore = Datastore({
     projectId: projectId
   });
-  
+
   let name = req.query.name || 'Apple';
   //let message = 'Hey you should type a product name ';
-
+  res.status(200).send(name);
   // [START prodouctQuery]
   //function searchProduct (name) {
   const query = datastore.createQuery('Product')
