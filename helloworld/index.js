@@ -15,6 +15,7 @@ const datastore = Datastore({
 
 exports.helloworld = function helloworld(req, res) {
   let name = req.query.name || 'Apple';
+  res.status(200).send(name);
   let message = 'Hey you should type a product name ';
 
   // [START prodouctQuery]
