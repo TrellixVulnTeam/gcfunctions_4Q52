@@ -14,7 +14,7 @@ exports.helloworld = function helloworld(req, res) {
     projectId: projectId
   });
 
-  let name = req.query.name || 'Apple';
+  var name = req.query.name || 'Apple';
   //let message = 'Hey you should type a product name ';
   // [START prodouctQuery]
   //function searchProduct (name) {
