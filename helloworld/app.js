@@ -35,7 +35,7 @@ exports.helloworld = function helloworld(req, res) {
     });
     //Debug response
     //res.status(200).send(name);
-    res.status(200).send('Product Autocomplete: ' + Products[0].name);
+    res.status(200).send(Products[0].name);
   //Products.forEach((name) => res.status(200).send(name));
 };
 
