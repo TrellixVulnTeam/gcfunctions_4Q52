@@ -21,7 +21,7 @@ exports.helloworld = function helloworld(req, res) {
   const query = datastore.createQuery('Product')
     .filter('name', ">=", productName)
     .filter('name', "<", productName+"~")
-    .select('name')
+    //.select('name')
     .order('name', {
       descending: true
   });
