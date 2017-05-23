@@ -18,7 +18,7 @@ exports.helloworld = function helloworld(req, res) {
   let message = 'Hey you should type a product name ';
 
   // [START prodouctQuery]
-  function searchProduct (name) {
+  //function searchProduct (name) {
     const query = datastore.createQuery('Product')
     .filter('name', ">=", name)
     .filter('name', "<", name+"~")
@@ -35,5 +35,12 @@ exports.helloworld = function helloworld(req, res) {
       Products.forEach((name) => console.log(name));
     });
   Products.forEach((name) => res.status(200).send(name));
-  }
 };
+
+/*exports.helloworld = function helloworld(req, res) {
+  let name = req.query.name || 'Bill';
+  let message = 'Hey ' + name;
+  console.log(message);
+  res.status(200).send('Success: ' + message);
+};
+*/
