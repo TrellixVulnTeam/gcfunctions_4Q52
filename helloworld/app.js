@@ -15,14 +15,14 @@ exports.helloworld = function helloworld(req, res) {
   });
 
   const productName = req.query.name || 'Apple';
-  const prodInfo = req.query.prodinfo || '';
-  //let message = 'Hey you should type a product name ';
+  //const prodInfo = req.query.prodinfo || '';
+
   // [START prodouctQuery]
-  //function searchProduct (name) {
+  //function searchProduct (productName) {
   const query = datastore.createQuery('Product')
-    //.filter('name', ">=", productName)
-    //.filter('name', "<", productName+"~")
-    .select(prodInfo)
+    .filter('name', ">=", productName)
+    .filter('name', "<", productName+"~")
+    //.select(prodInfo)
     .order('name', {
       descending: true
   });
