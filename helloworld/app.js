@@ -34,8 +34,9 @@ exports.helloworld = function helloworld(req, res) {
       //Products.forEach((name) => console.log(name));
     });
     //Debug response
-    res.status(200).send(productName);
+    //res.status(200).send(productName);
     //res.status(200).send(Products[0].name);
+    res.status(200).send(Products);
   //Products.forEach((name) => res.status(200).send(name));
 };
 
