@@ -26,8 +26,10 @@ exports.helloworld = function helloworld(req, res) {
       descending: true
   });
   datastore.runQuery(query, function(err, entities) {
-     res.status(200).send(entities) 
+     //res.status(200).send(entities);
+     entities.forEach((name) => res.status(200).send(name));
   });
+/*
   datastore.runQuery(query)
     .then((results) => {
       // Product entities found.
@@ -43,6 +45,7 @@ exports.helloworld = function helloworld(req, res) {
     //res.status(200).send(Products[0].name);
   //Products.forEach((name) => res.status(200).send(name));
 };
+*/
 
 /*exports.helloworld = function helloworld(req, res) {
   let name = req.query.name || 'Bill';
