@@ -25,7 +25,8 @@ exports.helloworld = function helloworld(req, res) {
     .order('name', {
       descending: true
   });
-  datastore.runQuery(query, function(err, entities) {
-     res.status(200).send(entities)
+  datastore.runQuery(query, function(err, products) {
+     res.status(200).send(products)
      //entities.forEach((name) => res.status(200).send(name));
   });
+}
