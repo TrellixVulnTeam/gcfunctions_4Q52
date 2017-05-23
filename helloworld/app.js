@@ -20,8 +20,8 @@ exports.helloworld = function helloworld(req, res) {
   // [START prodouctQuery]
   //function searchProduct (name) {
   const query = datastore.createQuery('Product')
-    .filter('name', ">=", productName)
-    .filter('name', "<", productName+"~")
+    //.filter('name', ">=", productName)
+    //.filter('name', "<", productName+"~")
     .select(prodInfo)
     .order('name', {
       descending: true
