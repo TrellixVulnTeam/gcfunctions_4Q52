@@ -25,32 +25,7 @@ exports.helloworld = function helloworld(req, res) {
     .order('name', {
       descending: true
   });
-  datastore.runQuery(query, function(err, entities) {
-     //res.status(200).send(entities);
-     entities.forEach((name) => res.status(200).send(name));
+  datastore.runQuery(query, function(err, products) {
+     res.status(200).send(products);
+     //entities.forEach((name) => res.status(200).send(name));
   });
-/*
-  datastore.runQuery(query)
-    .then((results) => {
-      // Product entities found.
-      const Products = results[0];
-      //res.status(200).send(Products[0].productName);
-      //console.log('Product Autocomplete: ');
-      //Products.forEach((name) => console.log(name));
-      //res.status(200).send(Products[0].name);
-      res.status(200).send("got this far :-)");
-    });
-    //Debug response
-    //res.status(200).send(productName);
-    //res.status(200).send(Products[0].name);
-  //Products.forEach((name) => res.status(200).send(name));
-};
-*/
-
-/*exports.helloworld = function helloworld(req, res) {
-  let name = req.query.name || 'Bill';
-  let message = 'Hey ' + name;
-  console.log(message);
-  res.status(200).send('Success: ' + message);
-};
-*/
