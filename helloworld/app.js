@@ -32,7 +32,8 @@ exports.helloworld = function helloworld(req, res) {
       //res.status(200).send(Products[0].productName);
       //console.log('Product Autocomplete: ');
       //Products.forEach((name) => console.log(name));
-      res.status(200).send(Products[0].name);
+      //res.status(200).send(Products[0].name);
+      res.status(200).send("got this far :-)");
     });
     //Debug response
     //res.status(200).send(productName);
