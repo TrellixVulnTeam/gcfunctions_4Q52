@@ -16,7 +16,6 @@ exports.helloworld = function helloworld(req, res) {
 
   let name = req.query.name || 'Apple';
   //let message = 'Hey you should type a product name ';
-  res.status(200).send(name);
   // [START prodouctQuery]
   //function searchProduct (name) {
   const query = datastore.createQuery('Product')
@@ -26,7 +25,7 @@ exports.helloworld = function helloworld(req, res) {
     .order('name', {
       descending: true
   });
-
+  res.status(200).send(name);
   datastore.runQuery(query)
     .then((results) => {
       // Product entities found.
