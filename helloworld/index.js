@@ -6,6 +6,17 @@
 };
 */
 
+// Imports the Google Cloud client library
+const Datastore = require('@google-cloud/datastore');
+
+// Your Google Cloud Platform project ID
+const projectId = 'bill-hahn-sandbox';
+
+// Instantiates a client
+const datastore = Datastore({
+  projectId: projectId
+});
+
 exports.helloworld = function helloworld(req, res) {
   let name = req.query.name || 'Apple';
   let message = 'Hey you should type a product name ';
