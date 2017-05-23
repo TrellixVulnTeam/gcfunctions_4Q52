@@ -14,13 +14,13 @@ exports.helloworld = function helloworld(req, res) {
     projectId: projectId
   });
 
-  var name = req.query.name || 'Apple';
+  const productName = req.query.name || 'Apple';
   //let message = 'Hey you should type a product name ';
   // [START prodouctQuery]
   //function searchProduct (name) {
   const query = datastore.createQuery('Product')
-    .filter('name', ">=", name)
-    .filter('name', "<", name+"~")
+    .filter('name', ">=", productName)
+    .filter('name', "<", productName+"~")
     .select('name')
     .order('name', {
       descending: true
@@ -29,13 +29,13 @@ exports.helloworld = function helloworld(req, res) {
     .then((results) => {
       // Product entities found.
       const Products = results[0];
-      //res.status(200).send(Products[0].name);
+      //res.status(200).send(Products[0].productName);
       //console.log('Product Autocomplete: ');
       //Products.forEach((name) => console.log(name));
     });
     //Debug response
-    //res.status(200).send(name);
-    res.status(200).send(Products[0].name);
+    res.status(200).send(productName);
+    //res.status(200).send(Products[0].name);
   //Products.forEach((name) => res.status(200).send(name));
 };
 
