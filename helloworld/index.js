@@ -1,10 +1,6 @@
-/*exports.helloworld = function helloworld(req, res) {
-  let name = req.query.name || 'Bill';
-  let message = 'Hey ' + name;
-  console.log(message);
-  res.status(200).send('Success: ' + message);
-};
-*/
+//Bill Hahn's JSON Product Catalog Lookup
+//using Cloud Datastore from Cloud Funcions
+//for Autocomplete lookups, on demand.
 
 // Imports the Google Cloud client library
 const Datastore = require('@google-cloud/datastore');
