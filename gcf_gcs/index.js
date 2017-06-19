@@ -8,52 +8,34 @@
 const BigQuery = require('@google-cloud/bigquery');
 const Storage = require('@google-cloud/storage');
 
-exports.helloGCS = function(event, callback) {
+exports.bigQueryImportCSV = function(event, callback) {
+  // Get Event Data (e.g. bucket name and filename metadata)
   const file = event.data;
-
-  //if (file.resourceState === 'not_exists') {
-  //  console.log(`File ${file.name} deleted.`);
-  //} else if (file.metageneration === 1) {
-  // metageneration attribute is updated on metadata changes.
-  // on create value is 1
-  //console.log(`File ${file.name} uploaded.`);
-
-
   // The project ID to use, e.g. "your-project-id"
   const projectId = "bill-hahn-sandbox";
-
   // The ID of the dataset of the table into which data should be imported, e.g. "my_dataset"
-  const datasetId = "nodejs_created_dataset";
-
+  const datasetId = "Marketing_Dataset";
   // The ID of the table into which data should be imported, e.g. "my_table"
-  const tableId = "babynames_yr2";
-
+  const tableId = "Marketing_Data_by_Year";
   // Get bucketname from event.data, which comes from gcs triggered upload event
   const bucketname = file.bucket;
-  // The name of the Google Cloud Storage bucket where the file is located, e.g. "my-bucket"
-  //const bucketName = "bh-babynames_yr";
-
   // Get file name from event.data, which comes from gcs triggered upload event
   const filename = file.name;
-  // The name of the file from which data should be imported, e.g. "file.csv"
-  //var filename = "yob2013yr.csv";
-
-  // Instantiates clients
+  // BigQuery API
   const bigquery = BigQuery({
     projectId: projectId
   });
-
+  // GCS Storage API
   const storage = Storage({
     projectId: projectId
   });
-
-  // Metadata to skip the leading row in the CSV that has column header info
+  // Job Metadata (e.g. SKIP header row in CSV)
   var jobmetadata = {
     //  skipLeadingRows: 1
   }
 
   let job;
-  // Imports data from a Google Cloud Storage file into the table
+  // Imports CSV file from GCS bucket into BigData Marketing_Dataset.Marketing_Data_by_Year)
   bigquery
     .dataset(datasetId)
     .table(tableId)
